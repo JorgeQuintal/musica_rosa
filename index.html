@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reproductor Compacto</title>
+    <style>
+        body {
+            margin: 0;
+            background: #ffb6c1;
+            /* fondo negro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            /* altura compacta para Google Sites */
+        }
+        
+        #playButton {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #ff69b4;
+            /* dorado */
+            color: #000;
+            /* icono negro */
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 8px #ff69b4;
+            transition: 0.3s;
+        }
+        
+        #playButton:hover {
+            background: #ff69b4;
+            /* dorado más brillante al pasar el mouse */
+            box-shadow: 0 0 16px #ff00ff;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="playButton">▶</button>
+    <audio id="audio" src="audio/Belanova - Rosa Pastel.mp3" autoplay></audio>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const button = document.getElementById('playButton');
+
+        button.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                button.textContent = '⏸';
+            } else {
+                audio.pause();
+                button.textContent = '▶';
+            }
+        });
+    </script>
+</body>
+
+</html>
